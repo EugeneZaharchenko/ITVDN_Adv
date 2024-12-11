@@ -33,7 +33,7 @@ class PersonTarget:
 
 parser = ET.XMLParser(target=PersonTarget())
 infile = 'data/test.xml'
-results = ET.parse(infile, parser)
+results = ET.parse(source=infile, parser=parser)
 
 for r in results:
     print(r)
