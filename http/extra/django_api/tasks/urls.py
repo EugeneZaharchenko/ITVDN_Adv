@@ -6,8 +6,8 @@ from issues.views import IssueModelViewSet, AuthView
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register('issues', IssueModelViewSet, base_name='issues')
-router.register('auth', AuthView, base_name='auth')
+router.register('issues', IssueModelViewSet, basename='issues')
+router.register('auth', AuthView, basename='auth')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

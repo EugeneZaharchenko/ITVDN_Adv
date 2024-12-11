@@ -3,7 +3,8 @@ from xml.etree import ElementTree as ET
 tree = ET.parse('data/test.xml')
 root = tree.getroot()
 
-children = root.getchildren()
+children = list(root)
+# children = root.getchildren() - DEPRECATED!
 
 for student_data in children:
     print("PK: ", student_data.attrib)
@@ -11,7 +12,7 @@ for student_data in children:
         print('{}: {}'.format(child.tag, child.text))
 
 root = ET.Element('record')
-for i in range(10):
+for i in range(5):
     sub_element = ET.SubElement(root, 'value{}'.format(i))
     sub_element.text = str(i * 10)
 

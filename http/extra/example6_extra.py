@@ -42,9 +42,9 @@ response = requests.post(issues_url, cookies=cookies)
 print(response.status_code)
 print(response.json())
 
-issue_data = {'name': 'Buy Python Book',
-              'due_date': '2009-02-11',
-              'description': 'We have to buy a Python book!!!'}
+issue_data = {'name': 'Defeat russia',
+              'due_date': '2025-02-11',
+              'description': 'We have to defeat fucking russian and win the war!!!'}
 
 # create issue (success: without data)
 response = requests.post(issues_url, data=json.dumps(issue_data),

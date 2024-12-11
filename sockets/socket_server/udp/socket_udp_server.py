@@ -11,5 +11,5 @@ class EchoUDPHandler(socketserver.BaseRequestHandler):
 
 
 if __name__ == '__main__':
-    with socketserver.UDPServer(('0', 8888), EchoUDPHandler) as server:
+    with socketserver.UDPServer(('127.0.0.1', 8887), EchoUDPHandler) as server:
         server.serve_forever()
