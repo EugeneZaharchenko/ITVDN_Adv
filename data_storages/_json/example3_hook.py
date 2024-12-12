@@ -2,6 +2,9 @@ import datetime
 import json
 
 
+# cat output.json | json_pp
+# cat output.json | python -m json.tool
+
 class DateFormatEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime.datetime):
