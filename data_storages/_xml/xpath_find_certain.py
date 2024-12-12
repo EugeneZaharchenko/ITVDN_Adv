@@ -13,6 +13,7 @@ for values in zip(first_names, last_names, ages):
     print(row)
 
 last_name = root.find('./person/age/..[@pk][1]/first_name').text
+# person -> age -> up -> any tag with 'pk' -> first of them (via [1]) -> first_name
 print(last_name)
 
 last_name = root.find('./person/age/..[@pk][2]/first_name').text

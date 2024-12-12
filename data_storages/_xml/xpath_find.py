@@ -2,7 +2,7 @@ from xml.etree import ElementTree as ET
 
 tree = ET.parse('data/test.xml')
 root = tree.getroot()
-children = root.getchildren()
+children = list(root)
 
 for student_data in children:
     print('PK: ', (student_data.attrib, student_data.get('pk')))
