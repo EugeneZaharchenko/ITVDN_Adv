@@ -13,7 +13,7 @@ def convert_json(raw):
 # conn = sqlite3.connect(":memory:")
 # cur = conn.cursor()
 #
-# cur.execute('CREATE TABLE test(p json)')
+# cur.execute('CREATE TABLE IF NOT EXISTS test(p json)')
 # cur.execute('INSERT INTO test(p) VALUES (?)', ({'test': 1, 'ppp': 10},))
 # cur.execute('INSERT INTO test(p) VALUES (?)', ({'test': 2, 'ppp': 11},))
 # cur.execute('INSERT INTO test(p) VALUES (?)', ({'test': 3, 'ppp': 12},))
@@ -31,7 +31,7 @@ sqlite3.register_converter('json', convert_json)
 conn = sqlite3.connect(':memory:', detect_types=sqlite3.PARSE_DECLTYPES)
 cur = conn.cursor()
 
-cur.execute('CREATE TABLE test(p json)')
+cur.execute('CREATE TABLE IF NOT EXISTS test(p json)')
 cur.execute('INSERT INTO test(p) VALUES (?)', ({'test': 1, 'ppp': 10},))
 cur.execute('INSERT INTO test(p) VALUES (?)', ({'test': 2, 'ppp': 11},))
 cur.execute('SELECT * FROM test')

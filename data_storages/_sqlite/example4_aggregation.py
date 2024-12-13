@@ -17,7 +17,7 @@ conn = sqlite3.connect(':memory:')
 conn.create_aggregate('row_set', 1, RowSet)
 
 cur = conn.cursor()
-cur.execute('CREATE TABLE users(first_name)')
+cur.execute('CREATE TABLE IF NOT EXISTS users(first_name)')
 cur.execute(
     """INSERT INTO users(first_name)
        VALUES ("Dmitry"),
@@ -30,4 +30,4 @@ cur.execute(
 
 cur.execute('SELECT row_set(first_name) AS result FROM users')
 results = cur.fetchall()
-print(dict())
+print(results[0])

@@ -6,13 +6,13 @@ def upper_word(raw):
 
 
 conn = sqlite3.connect(':memory:')
-conn.create_function('upper1', 1, upper_word)
+conn.create_function('upper_func', 1, upper_word)
 cur = conn.cursor()
 
-cur.execute('CREATE TABLE users(first_name char(20))')
+cur.execute('CREATE TABLE IF NOT EXISTS users(first_name char(20))')
 cur.execute(
     'INSERT INTO users(first_name) VALUES ("Eugene"),("Dmitry"),("Viktor")'
 )
-cur.execute('SELECT upper1(first_name) FROM users')
+cur.execute('SELECT upper_func(first_name) FROM users')
 row = cur.fetchone()
 print(row)

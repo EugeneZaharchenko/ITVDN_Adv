@@ -1,8 +1,8 @@
 import sqlite3
 
-conn = sqlite3.connect('db.sqlite3')
+conn = sqlite3.connect('repr_db.sqlite3')
 conn.execute(
-    """CREATE TABLE "users" (
+    """CREATE TABLE IF NOT EXISTS "users" (
            id INTEGER PRIMARY KEY AUTOINCREMENT,
            first_name,
            last_name,
@@ -13,6 +13,7 @@ conn.execute("""
         VALUES (1, "Eugene", "Hatsko", "09-11-1992"),
                (2, "Dmitry", "Ivanov", "01-09-1993")
    """)
+conn.commit()
 
 conn.row_factory = sqlite3.Row
 users = conn.execute('SELECT * FROM "users"').fetchall()
